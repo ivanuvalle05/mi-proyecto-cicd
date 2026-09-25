@@ -1,0 +1,47 @@
+name: CI/CD Pipeline - Automatizacion
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    name: Integracion y Pruebas Continuas
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del codigo
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Ejecutar pruebas unitarias
+        run: npm test
+
+      - name: Compilar / Construir app
+        run: npm run build
+
+  deploy:
+    name: Despliegue Automatizado
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Checkout del codigo
+        uses: actions/checkout@v4
+
+      - name: Simulacion de Despliegue a Produccion
+        run: |
+          echo "Iniciando despliegue automatizado..."
+          echo "Empaquetando artefactos de la aplicacion..."
+          echo "Despliegue completado con exito en el servidor de destino (Cloud Server)."
+
+          
