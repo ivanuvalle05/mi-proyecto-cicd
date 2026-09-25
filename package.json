@@ -1,0 +1,12 @@
+{
+  "name": "mi-proyecto-cicd",
+  "version": "1.0.0",
+  "description": "Practica CI/CD Automatizacion",
+  "main": "src/math.js",
+  "scripts": {
+    "test": "node --test",
+    "build": "echo 'Build completado exitosamente: Aplicacion lista para produccion.'"
+  },
+  "author": "Ivan Uvalle",
+  "license": "ISC"
+}
