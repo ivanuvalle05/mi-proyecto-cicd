@@ -17,7 +17,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
 
       - name: Instalar dependencias
         run: npm install
@@ -40,8 +39,10 @@ jobs:
 
       - name: Simulacion de Despliegue a Produccion
         run: |
+          echo "=========================================="
           echo "Iniciando despliegue automatizado..."
-          echo "Empaquetando artefactos de la aplicacion..."
-          echo "Despliegue completado con exito en el servidor de destino (Cloud Server)."
+          echo "Conectando al servidor de destino..."
+          echo "¡Despliegue completado con éxito en producción!"
+          echo "=========================================="
 
           
